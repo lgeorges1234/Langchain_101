@@ -1,0 +1,5 @@
+.env
+venv/
+langchain101_venv/
+__pycache__/
+*.pyc
