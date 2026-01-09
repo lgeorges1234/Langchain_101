@@ -17,9 +17,11 @@ class DocumentChunk(BaseModel):
 # Refer to README.md Task 1.1 for detailed field requirements.
 class AnswerResponse(BaseModel):
     """Structured response for Q&A tasks - TO BE IMPLEMENTED"""
-    pass
-
-
+    question: str = Field(description="The original user question")
+    answer: str = Field(description="The generated answer based on the documents")
+    sources: List[str] = Field(default_factory=list, description="List of source document IDs used")
+    confidence: float = Field(ge=0, le=1, description="Confidence score between 0 and 1")
+    timestamp: datetime = Field(default_factory=datetime.now, description="When the response was generated")
 
 class SummarizationResponse(BaseModel):
     """Structured response for summarization tasks"""
@@ -49,9 +51,12 @@ class UpdateMemoryResponse(BaseModel):
 # This schema should include fields for intent_type, confidence, and reasoning.
 # Refer to README.md Task 1.2 for detailed field requirements.
 class UserIntent(BaseModel):
-    """User intent classification - TO BE IMPLEMENTED"""
-    pass
-
+    """User intent classification - This schema helps the system understand what type of request the user is making and route it to the appropriate agent."""
+    intent_type: Literal["qa", "summarization", "calculation", "unknown"] = Field(
+        description="The classified intent of the user"
+    )
+    confidence: float = Field(ge=0, le=1, description="Confidence in classification")
+    reasoning: str = Field(description="Explanation for the classification")
 
 class SessionState(BaseModel):
     """Session state"""

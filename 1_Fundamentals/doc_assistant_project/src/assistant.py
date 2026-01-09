@@ -120,9 +120,9 @@ class DocumentAssistant:
         # Refer to README.md Task 2.6 for details
         config = {
             "configurable": {
-                "thread_id": # TODO: Set this to the session id of the current sessions
-                "llm": # TODO Set this to the LLM instance (self.llm)
-                "tools": # TODO Set this to the list of tools
+                "thread_id": self.current_session.session_id,# TODO: Set this to the session id of the current sessions
+                "llm": self.llm, # TODO Set this to the LLM instance (self.llm)
+                "tools": self.tools # TODO Set this to the list of tools
             }
         }
 
