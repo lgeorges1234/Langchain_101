@@ -116,7 +116,7 @@ class DocumentAssistant:
     def process_message(self, user_input: str) -> Dict[str, Any]:
         """Process a user message using the LangGraph workflow."""
 
-#TODO: Complete the config dictionary to set the thread_ud, llm, and tools to the workflow
+        #TODO: Complete the config dictionary to set the thread_ud, llm, and tools to the workflow
         # Refer to README.md Task 2.6 for details
         config = {
             "configurable": {
@@ -128,21 +128,20 @@ class DocumentAssistant:
 
         if not self.current_session:
             raise ValueError("No active session. Call start_session() first.")
+        # Setup the initial state for the workflow invoke
         initial_state: AgentState = {
-            "messages": [],
-            "user_input": user_input,
-            "intent": None,
-            "next_step": "classify_intent",
-            "conversation_history": self.current_session.conversation_history,
-            "conversation_summary": self._get_conversation_summary(config),
-            "active_documents": self.current_session.document_context,
-            "current_response": None,
-            "tools_used": [],
-            "session_id": self.current_session.session_id,
-            "user_id": self.current_session.user_id,
-            # Initialise actions_taken list for this turn
-            "actions_taken": []
-        }
+                "messages": [], # Messages will be added by the graph nodes
+                "user_input": user_input,
+                "intent": None,
+                "next_step": "classify_intent",
+                "conversation_summary": self._get_conversation_summary(config),
+                "active_documents": self.current_session.document_context,
+                "current_response": None,
+                "tools_used": [],
+                "session_id": self.current_session.session_id,
+                "user_id": self.current_session.user_id,
+                "actions_taken": [] # Starting empty; operator.add will grow this
+            }
         try:
             # Invoke the workflow with a thread_id equal to the session_id
             final_state = self.workflow.invoke(initial_state, config=config)

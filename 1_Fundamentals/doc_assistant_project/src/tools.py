@@ -62,12 +62,45 @@ class ToolLogger:
 # TODO: Implement the calculator tool using the @tool decorator.
 # This tool should safely evaluate mathematical expressions and log its usage.
 # Refer to README.md Task 4.1 for detailed implementation requirements.
+# TODO: Implement the calculator tool using the @tool decorator.
+# This tool should safely evaluate mathematical expressions and log its usage.
+# Refer to README.md Task 4.1 for detailed implementation requirements.
 def create_calculator_tool(logger: ToolLogger):
     """
-    Creates a calculator tool - TO BE IMPLEMENTED
+    Creates a calculator tool with basic evaluation and logging.
     """
-    # Your implementation here
-    pass
+    
+    @tool
+    def calculate(expression: str) -> str:
+        """
+        Useful for performing mathematical calculations. 
+        The input should be a mathematical expression like '2 + 2' or '15000 * 0.1'.
+        """
+        try:
+            # 1. Evaluate the mathematical expression
+            result = eval(expression)
+            
+            # 2. Log the tool usage using the log_tool_use footprint
+            logger.log_tool_use(
+                tool_name="calculate",
+                input_data={"expression": expression},
+                output=result
+            )
+            
+            # 3. Return the formatted result
+            return f"Calculation Result: {result}"
+
+        except Exception as e:
+            # 4. Handle errors and log the failure
+            error_msg = f"Error: {str(e)}"
+            logger.log_tool_use(
+                tool_name="calculate",
+                input_data={"expression": expression},
+                output=error_msg
+            )
+            return error_msg
+
+    return calculate
 
 
 def create_document_search_tool(retriever, logger: ToolLogger):
@@ -328,6 +361,8 @@ def create_document_statistics_tool(retriever, logger: ToolLogger):
             return error_msg
 
     return document_statistics
+
+
 
 
 def get_all_tools(retriever, logger: ToolLogger) -> List:

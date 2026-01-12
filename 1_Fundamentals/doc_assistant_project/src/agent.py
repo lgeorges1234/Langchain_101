@@ -77,7 +77,6 @@ def classify_intent(state: AgentState, config: RunnableConfig) -> AgentState:
     """
 
     llm = config.get("configurable").get("llm")
-    history = state.get("messages", [])
 
     # TODO Configure the llm chat model for structured output
     structured_llm = llm.with_structured_output(UserIntent)
@@ -99,7 +98,8 @@ def classify_intent(state: AgentState, config: RunnableConfig) -> AgentState:
         "calculation": "calculation_agent"
     }
     
-    # On utilise .get() avec "qa_agent" par défaut en cas d'inconnu
+    # Next step is retrieved from intent_result using intent_map dict
+    # "qa_agent is placed as default"
     next_step = intent_map.get(intent_result.intent_type, "qa_agent")
 
     # TODO: Add conditional logic to set next_step based on intent
@@ -202,7 +202,6 @@ def update_memory(state: AgentState, config: RunnableConfig) -> AgentState:
 
     # TODO: Retrieve the LLM from config
     llm = config.get("configurable").get("llm")
-    structured_llm = llm.with_structured_output(UpdateMemoryResponse)
 
     prompt_with_history = ChatPromptTemplate.from_messages([
         SystemMessagePromptTemplate.from_template(MEMORY_SUMMARY_PROMPT),
@@ -218,9 +217,9 @@ def update_memory(state: AgentState, config: RunnableConfig) -> AgentState:
 
     response = structured_llm.invoke(prompt_with_history)
     return {
-        "conversation_summary": response.conversation_summary, # TODO: Extract summary from response
-        "active_documents": response.active_documents, # TODO: Update with the current active documents
-        "next_step": "end" # TODO: Update the next step to end
+        "conversation_summary": response.summary, 
+        "active_documents": response.document_ids,
+        "next_step": "end"
     } # pyright: ignore[reportReturnType]
 
 def should_continue(state: AgentState) -> str:
@@ -266,5 +265,4 @@ def create_workflow(llm, tools):
     workflow.add_edge("update_memory", END)
 
     # TODO Modify the return values below by adding a checkpointer with InMemorySaver
-    checkpointer = InMemorySaver()
-    return workflow.compile()
+    return workflow.compile(checkpointer = InMemorySaver())

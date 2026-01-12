@@ -1,0 +1,752 @@
+{
+  "session_id": "32d42362-98a4-4f8f-be2e-36121c74f351",
+  "user_id": "1",
+  "conversation_history": [
+    {
+      "user_input": "Tell me about INV-001",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "0084cd8e-549a-42f1-920b-39bcf410620e"
+        },
+        {
+          "content": "Tell me about INV-001",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "afd8a570-4cb0-452f-ba86-de40c08d4e53"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 665,
+              "total_tokens": 682,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_deacdd5f6f",
+            "id": "chatcmpl-Cx9rdtQr1CMFomc96Z9DYaNPp15qi",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--019bb1d8-5bb1-7592-80cf-cd9738601937-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "INV-001"
+              },
+              "id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 665,
+            "output_tokens": 17,
+            "total_tokens": 682,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "42753277-5571-44e5-8802-559201e61248",
+          "tool_call_id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "Document INV-001 is an invoice with the following details:\n\n- **Invoice Number:** 12345\n- **Date:** January 15, 2024\n- **Client:** Acme Corporation\n\n**Services Rendered:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Subtotal:** $20,000\n- **Tax (10%):** $2,000\n\n- **Payment Terms:** Net 30 days",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 107,
+              "prompt_tokens": 785,
+              "total_tokens": 892,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_deacdd5f6f",
+            "id": "chatcmpl-Cx9reQ2L7e5l6d08TZM7cRhcN18mX",
+            "service_tier": "default",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--019bb1d8-5fbc-7b51-86c4-4aac8e96a8df-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 785,
+            "output_tokens": 107,
+            "total_tokens": 892,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        }
+      ],
+      "intent": {
+        "intent_type": "qa",
+        "confidence": 0.85,
+        "reasoning": "The user is asking for information about a specific document, INV-001. This suggests they are seeking details or clarification about this document, which aligns with the 'qa' category. There is no indication of a need for summarization or calculation based on the input provided."
+      },
+      "next_step": "end",
+      "conversation_summary": "The conversation involved a request for details about document INV-001, which is an invoice for Acme Corporation dated January 15, 2024. It includes charges for consulting services ($5,000), software development ($12,500), and support & maintenance ($2,500), totaling $20,000 with an additional 10% tax of $2,000. The payment terms are net 30 days.",
+      "active_documents": [
+        "INV-001"
+      ],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "0084cd8e-549a-42f1-920b-39bcf410620e"
+          },
+          {
+            "content": "Tell me about INV-001",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "afd8a570-4cb0-452f-ba86-de40c08d4e53"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 665,
+                "total_tokens": 682,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_deacdd5f6f",
+              "id": "chatcmpl-Cx9rdtQr1CMFomc96Z9DYaNPp15qi",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019bb1d8-5bb1-7592-80cf-cd9738601937-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "INV-001"
+                },
+                "id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 665,
+              "output_tokens": 17,
+              "total_tokens": 682,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "42753277-5571-44e5-8802-559201e61248",
+            "tool_call_id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Document INV-001 is an invoice with the following details:\n\n- **Invoice Number:** 12345\n- **Date:** January 15, 2024\n- **Client:** Acme Corporation\n\n**Services Rendered:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Subtotal:** $20,000\n- **Tax (10%):** $2,000\n\n- **Payment Terms:** Net 30 days",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 785,
+                "total_tokens": 892,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_deacdd5f6f",
+              "id": "chatcmpl-Cx9reQ2L7e5l6d08TZM7cRhcN18mX",
+              "service_tier": "default",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019bb1d8-5fbc-7b51-86c4-4aac8e96a8df-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 785,
+              "output_tokens": 107,
+              "total_tokens": 892,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          }
+        ],
+        "structured_response": {
+          "question": "Tell me about INV-001",
+          "answer": "Document INV-001 is an invoice with the following details:\n\n- **Invoice Number:** 12345\n- **Date:** January 15, 2024\n- **Client:** Acme Corporation\n\n**Services Rendered:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Subtotal:** $20,000\n- **Tax (10%):** $2,000\n\n- **Payment Terms:** Net 30 days",
+          "sources": [
+            "INV-001"
+          ],
+          "confidence": 0.95,
+          "timestamp": "2023-10-06T12:00:00+00:00"
+        }
+      },
+      "tools_used": [
+        "document_reader"
+      ],
+      "session_id": "32d42362-98a4-4f8f-be2e-36121c74f351",
+      "user_id": "1",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent"
+      ]
+    },
+    {
+      "user_input": "Summarize it",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "0084cd8e-549a-42f1-920b-39bcf410620e"
+        },
+        {
+          "content": "Tell me about INV-001",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "afd8a570-4cb0-452f-ba86-de40c08d4e53"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 665,
+              "total_tokens": 682,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_deacdd5f6f",
+            "id": "chatcmpl-Cx9rdtQr1CMFomc96Z9DYaNPp15qi",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--019bb1d8-5bb1-7592-80cf-cd9738601937-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "INV-001"
+              },
+              "id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 665,
+            "output_tokens": 17,
+            "total_tokens": 682,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "42753277-5571-44e5-8802-559201e61248",
+          "tool_call_id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "Document INV-001 is an invoice with the following details:\n\n- **Invoice Number:** 12345\n- **Date:** January 15, 2024\n- **Client:** Acme Corporation\n\n**Services Rendered:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Subtotal:** $20,000\n- **Tax (10%):** $2,000\n\n- **Payment Terms:** Net 30 days",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 107,
+              "prompt_tokens": 785,
+              "total_tokens": 892,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_deacdd5f6f",
+            "id": "chatcmpl-Cx9reQ2L7e5l6d08TZM7cRhcN18mX",
+            "service_tier": "default",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--019bb1d8-5fbc-7b51-86c4-4aac8e96a8df-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 785,
+            "output_tokens": 107,
+            "total_tokens": 892,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "You are an expert document summarizer specializing in financial and healthcare documents.\n\nYour approach:\n- Extract key information and main points\n- Organize summaries logically\n- Highlight important numbers, dates, and parties\n- Keep summaries concise but comprehensive\n\nGuidelines:\n1. First search for and read the relevant documents\n2. Structure summaries with clear sections\n3. Include document IDs in your summary\n4. Focus on actionable information\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "bc48b117-2f8a-48c6-8e12-ae66c7f77dc5"
+        },
+        {
+          "content": "Summarize it",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "b26f1063-8abb-499b-b92d-d46f5aa28fae"
+        },
+        {
+          "content": "**Invoice Summary (Document ID: INV-001):**\n\n- **Client:** Acme Corporation\n- **Date Issued:** January 15, 2024\n- **Invoice Number:** 12345\n\n**Services Provided:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Total Amount Before Tax:** $20,000\n- **Tax (10%):** $2,000\n- **Total Amount Due:** $22,000\n\n- **Payment Terms:** Net 30 days\n\nThis invoice outlines the services provided to Acme Corporation, totaling $22,000 including tax, with payment due within 30 days.",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 150,
+              "prompt_tokens": 993,
+              "total_tokens": 1143,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_deacdd5f6f",
+            "id": "chatcmpl-Cx9sINcoL6NWDc2gcCUHkVn9Qawr0",
+            "service_tier": "default",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--019bb1d8-fc18-7e10-8b8f-3d393e4ebdeb-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 993,
+            "output_tokens": 150,
+            "total_tokens": 1143,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        }
+      ],
+      "intent": {
+        "intent_type": "summarization",
+        "confidence": 0.95,
+        "reasoning": "The user input 'Summarize it' directly follows a detailed presentation of document INV-001. The user is likely requesting a concise summary of the document's content, which aligns with the 'summarization' intent. The context of the conversation and the user's brief command strongly suggest this intent."
+      },
+      "next_step": "end",
+      "conversation_summary": "**Invoice Summary (Document ID: INV-001):**\n\n- **Client:** Acme Corporation\n- **Date Issued:** January 15, 2024\n- **Invoice Number:** 12345\n\n**Services Provided:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Total Amount Before Tax:** $20,000\n- **Tax (10%):** $2,000\n- **Total Amount Due:** $22,000\n\n- **Payment Terms:** Net 30 days\n\nThis invoice outlines the services provided to Acme Corporation, totaling $22,000 including tax, with payment due within 30 days.",
+      "active_documents": [
+        "INV-001"
+      ],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are an expert document summarizer specializing in financial and healthcare documents.\n\nYour approach:\n- Extract key information and main points\n- Organize summaries logically\n- Highlight important numbers, dates, and parties\n- Keep summaries concise but comprehensive\n\nGuidelines:\n1. First search for and read the relevant documents\n2. Structure summaries with clear sections\n3. Include document IDs in your summary\n4. Focus on actionable information\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "bc48b117-2f8a-48c6-8e12-ae66c7f77dc5"
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "0084cd8e-549a-42f1-920b-39bcf410620e"
+          },
+          {
+            "content": "Tell me about INV-001",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "afd8a570-4cb0-452f-ba86-de40c08d4e53"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 665,
+                "total_tokens": 682,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_deacdd5f6f",
+              "id": "chatcmpl-Cx9rdtQr1CMFomc96Z9DYaNPp15qi",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019bb1d8-5bb1-7592-80cf-cd9738601937-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "INV-001"
+                },
+                "id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 665,
+              "output_tokens": 17,
+              "total_tokens": 682,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "42753277-5571-44e5-8802-559201e61248",
+            "tool_call_id": "call_YD7z48b1uXVIZFAidKLmz7DZ",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Document INV-001 is an invoice with the following details:\n\n- **Invoice Number:** 12345\n- **Date:** January 15, 2024\n- **Client:** Acme Corporation\n\n**Services Rendered:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Subtotal:** $20,000\n- **Tax (10%):** $2,000\n\n- **Payment Terms:** Net 30 days",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 785,
+                "total_tokens": 892,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_deacdd5f6f",
+              "id": "chatcmpl-Cx9reQ2L7e5l6d08TZM7cRhcN18mX",
+              "service_tier": "default",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019bb1d8-5fbc-7b51-86c4-4aac8e96a8df-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 785,
+              "output_tokens": 107,
+              "total_tokens": 892,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Summarize it",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "b26f1063-8abb-499b-b92d-d46f5aa28fae"
+          },
+          {
+            "content": "**Invoice Summary (Document ID: INV-001):**\n\n- **Client:** Acme Corporation\n- **Date Issued:** January 15, 2024\n- **Invoice Number:** 12345\n\n**Services Provided:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Total Amount Before Tax:** $20,000\n- **Tax (10%):** $2,000\n- **Total Amount Due:** $22,000\n\n- **Payment Terms:** Net 30 days\n\nThis invoice outlines the services provided to Acme Corporation, totaling $22,000 including tax, with payment due within 30 days.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 150,
+                "prompt_tokens": 993,
+                "total_tokens": 1143,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_deacdd5f6f",
+              "id": "chatcmpl-Cx9sINcoL6NWDc2gcCUHkVn9Qawr0",
+              "service_tier": "default",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019bb1d8-fc18-7e10-8b8f-3d393e4ebdeb-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 993,
+              "output_tokens": 150,
+              "total_tokens": 1143,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          }
+        ],
+        "structured_response": {
+          "original_length": 268,
+          "summary": "**Invoice Summary (Document ID: INV-001):**\n\n- **Client:** Acme Corporation\n- **Date Issued:** January 15, 2024\n- **Invoice Number:** 12345\n\n**Services Provided:**\n- Consulting Services: $5,000\n- Software Development: $12,500\n- Support & Maintenance: $2,500\n\n- **Total Amount Before Tax:** $20,000\n- **Tax (10%):** $2,000\n- **Total Amount Due:** $22,000\n\n- **Payment Terms:** Net 30 days\n\nThis invoice outlines the services provided to Acme Corporation, totaling $22,000 including tax, with payment due within 30 days.",
+          "key_points": [
+            "Client: Acme Corporation",
+            "Date Issued: January 15, 2024",
+            "Invoice Number: 12345",
+            "Services Provided: Consulting, Software Development, Support & Maintenance",
+            "Total Amount Before Tax: $20,000",
+            "Tax (10%): $2,000",
+            "Total Amount Due: $22,000",
+            "Payment Terms: Net 30 days"
+          ],
+          "document_ids": [
+            "INV-001"
+          ],
+          "timestamp": "2024-01-15T00:00:00+00:00"
+        }
+      },
+      "tools_used": [
+        "document_reader"
+      ],
+      "session_id": "32d42362-98a4-4f8f-be2e-36121c74f351",
+      "user_id": "1",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent",
+        "classify_intent",
+        "summarization_agent"
+      ]
+    }
+  ],
+  "document_context": [
+    "INV-001"
+  ],
+  "created_at": "2026-01-12T11:54:44.677980",
+  "last_updated": "2026-01-12T11:55:55.051459"
+}
