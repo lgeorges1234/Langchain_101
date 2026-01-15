@@ -10,8 +10,11 @@ from langchain_core.tools import tool
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import TextLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from models.energy import DatabaseManager
+
+from dotenv import load_dotenv
+load_dotenv()
 
 # Initialize database manager
 db_manager = DatabaseManager()
@@ -50,9 +53,19 @@ def get_weather_forecast(location: str, days: int = 3) -> Dict[str, Any]:
             ]
         }
     """
-    # Mock weather API or call OpenWeatherMap or similar
+    # Simulation: Sunny between 10:00 and 16:00
+    hourly = []
+    for hour in range(24):
+        # Peak irradiance at noon (12:00)
+        irradiance = max(0, 800 * (1 - abs(hour - 12) / 6)) if 6 <= hour <= 18 else 0
+        hourly.append({
+            "hour": hour,
+            "condition": "sunny" if irradiance > 400 else "partly_cloudy",
+            "solar_irradiance": round(irradiance, 2),
+            "temperature_c": 22 + random.uniform(-2, 2)
+        })
+    return {"location": location, "hourly": hourly}
     
-    return 
 
 # TODO: Implement get_electricity_prices tool
 @tool
@@ -81,16 +94,35 @@ def get_electricity_prices(date: str = None) -> Dict[str, Any]:
             ]
         }
     """
-    if date is None:
-        date = datetime.now().strftime("%Y-%m-%d")
-    
+    try:
+        if date is None:
+            date = datetime.now().strftime("%Y-%m-%d")
+        
+        hourly_rates = []
+        for hour in range(24):
+            # Mocking Peak (6-22) vs Off-Peak (22-6)
+            is_peak = 6 <= hour < 22
+            rate = 0.15 if is_peak else 0.10
+            hourly_rates.append({
+                "hour": hour,
+                "rate": rate,
+                "period": "peak" if is_peak else "off_peak",
+                "demand_charge": 0.05 if is_peak else 0.0
+            })
+        return {
+            "date": date,
+            "currency": "USD", 
+            "unit": "per_kWh", 
+            "hourly_rates": hourly_rates
+        }
+    except Exception as e:
+        return {"error": f"Failed to get prices: {str(e)}"}
     # Mock electricity pricing - in real implementation, this would call a pricing API
     # Use a base price per kWh    
     # Then generate hourly rates with peak/off-peak pricing
     # Peak normally between 6 and 22...
     # demand_charge should be 0 if off-peak
 
-    return 
 
 @tool
 def query_energy_usage(start_date: str, end_date: str, device_type: str = None) -> Dict[str, Any]:
@@ -260,7 +292,10 @@ def search_energy_tips(query: str, max_results: int = 5) -> Dict[str, Any]:
             splits = text_splitter.split_documents(documents)
             
             # Create vector store
-            embeddings = OpenAIEmbeddings()
+            embeddings = OpenAIEmbeddings(
+                base_url="https://openai.vocareum.com/v1",
+                api_key=os.getenv("VOCAREUM_API_KEY")
+            )
             vectorstore = Chroma.from_documents(
                 documents=splits,
                 embedding=embeddings,
@@ -268,7 +303,10 @@ def search_energy_tips(query: str, max_results: int = 5) -> Dict[str, Any]:
             )
         else:
             # Load existing vector store
-            embeddings = OpenAIEmbeddings()
+            embeddings = OpenAIEmbeddings(
+                base_url="https://openai.vocareum.com/v1",
+                api_key=os.getenv("VOCAREUM_API_KEY")
+            )
             vectorstore = Chroma(
                 persist_directory=persist_directory,
                 embedding_function=embeddings
